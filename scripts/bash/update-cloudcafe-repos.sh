@@ -31,7 +31,7 @@ do
     for branch in ${branches[*]}
     do
         git checkout $branch
-        git pull rcbops $branch
+        git pull upstream $branch
         git push origin $branch
     done
     cd ../
