@@ -20,8 +20,8 @@ do
     printf "  %s\n" $item
 done
 
-# Update repos
-cd /home/solo4572/Documents/git
+# Update jacobwagner cloudcafe repos
+cd /home/solo4572/workspace/jacobwagner
 pwd
 
 for repo in ${repos[*]}
@@ -31,7 +31,24 @@ do
     for branch in ${branches[*]}
     do
         git checkout $branch
-        git pull upstream $branch
+        git pull stackforge $branch
+        git push origin $branch
+    done
+    cd ../
+done
+
+# Update rcbops-qa cloud-cafe repos
+cd /home/solo4572/workspace/rcbops-qa
+pwd
+
+for repo in ${repos[*]}
+do
+    cd $repo
+    pwd
+    for branch in ${branches[*]}
+    do
+        git checkout $branch
+        git pull stackforge $branch
         git push origin $branch
     done
     cd ../
